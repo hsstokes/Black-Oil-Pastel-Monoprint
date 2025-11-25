@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Black Oil Pastel Monoprint Homework</title>
+<style>
+:root {
+  --primary: #ea37a3;
+  --primary-light: #fdf1f5;
+  --secondary: #0a8080;
+  --secondary-light: #f5ffff;
+  --dark: #222;
+  --light: #fff;
+  --grid-light: #e0e0e0;
+  --homework: #ea37a3;
+  --homework-light: #fdf1f5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Typewriter Condensed", "Courier New", monospace;
+  background-image:
+    linear-gradient(var(--grid-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-light) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px;
+  background-attachment: fixed;
+  color: var(--dark);
+  padding: 20px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.97);
+  border: 3px solid var(--homework);
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: "Typewriter Condensed", "Courier New", monospace;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8em;
+}
+
+h1 {
+  color: var(--homework);
+  font-size: 2.3rem;
+  border-bottom: 2px solid var(--homework);
+  padding-bottom: 15px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+h2 {
+  color: var(--homework);
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 25px;
+  background: var(--homework);
+  margin-right: 15px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--homework);
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1.2em;
+  font-size: 1.1rem;
+}
+
+/* Banner */
+.banner {
+  background-color: var(--homework-light);
+  border: 2px solid var(--homework);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.banner h2 {
+  color: var(--homework);
+  margin-top: 0;
+  display: block;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.banner h2::before {
+  display: none;
+}
+
+.banner p {
+  margin-bottom: 0;
+}
+
+/* Materials box */
+.materials-box {
+  background-color: white;
+  border: 2px solid var(--homework);
+  border-radius: 10px;
+  padding: 25px;
+  margin: 30px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.materials-box h3 {
+  color: var(--homework);
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px dashed var(--homework);
+  padding-bottom: 10px;
+}
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.material-item {
+  background: var(--homework-light);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.material-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--homework);
+}
+
+.material-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--homework);
+}
+
+/* Step by step process */
+.steps-container {
+  margin: 40px 0;
+}
+
+.step-box {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.step-header {
+  background: var(--homework);
+  color: white;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.step-number {
+  background: white;
+  color: var(--homework);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+.step-content {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+@media (max-width: 768px) {
+  .step-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.step-text ul {
+  margin-left: 25px;
+  margin-bottom: 15px;
+}
+
+.step-text li {
+  margin-bottom: 10px;
+}
+
+.step-text strong {
+  color: var(--homework);
+}
+
+.step-image {
+  text-align: center;
+}
+
+.step-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 2px solid #eee;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.step-image figcaption {
+  margin-top: 10px;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Examples gallery */
+.examples-gallery {
+  margin: 40px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.example-item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.example-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: var(--homework);
+}
+
+.example-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.example-desc {
+  padding: 15px;
+  background: white;
+}
+
+.example-title {
+  font-weight: bold;
+  color: var(--homework);
+  margin-bottom: 5px;
+}
+
+/* Tips section */
+.tips-box {
+  background: var(--homework-light);
+  border-radius: 10px;
+  padding: 25px;
+  margin: 30px 0;
+  border-left: 5px solid var(--homework);
+}
+
+.tips-box h3 {
+  color: var(--homework);
+  margin-top: 0;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.tip-item {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.tip-item h4 {
+  color: var(--homework);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+/* Submission box */
+.submission-box {
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 40px 0 20px 0;
+  border: 3px dashed var(--homework);
+  text-align: center;
+}
+
+.submission-box h3 {
+  color: var(--homework);
+  margin-top: 0;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.submission-date {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 15px 0;
+  color: var(--homework);
+}
+
+/* Video section */
+.video-box {
+  margin: 40px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border: 2px solid var(--homework);
+}
+
+.video-title {
+  background: var(--homework);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  overflow: auto;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid white;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  z-index: 1001;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Print button */
+.print-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--homework);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.print-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+@media print {
+  .print-button {
+    display: none;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  .container {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    max-width: 100%;
+  }
+}
+
+/* Checklist */
+.checklist {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 30px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 2px solid var(--homework);
+}
+
+.checklist h3 {
+  color: var(--homework);
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed var(--homework);
+  padding-bottom: 10px;
+}
+
+.checklist-item {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.checklist-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--homework);
+  border-radius: 5px;
+  margin-right: 15px;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.checklist-checkbox.checked::after {
+  content: "✓";
+  position: absolute;
+  color: var(--homework);
+  font-size: 20px;
+  top: -4px;
+  left: 4px;
+  font-weight: bold;
+}
+
+.checklist-text {
+  flex-grow: 1;
+}
+
+.checklist-label {
+  font-weight: bold;
+  color: var(--homework);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Black Oil Pastel Monoprint</h1>
+  
+  <div class="banner">
+    <h2>HOMEWORK TASK</h2>
+    <p>Make 2-3 monoprints using black oil pastel and textured objects</p>
+  </div>
+  
+  <div class="materials-box">
+    <h3>Materials You Need</h3>
+    
+    <div class="materials-grid">
+      <div class="material-item">
+        <div class="material-icon">🖌️</div>
+        <div class="material-name">Black Oil Pastel</div>
+      </div>
+      
+      <div class="material-item">
+        <div class="material-icon">📄</div>
+        <div class="material-name">Tracing Paper</div>
+      </div>
+      
+      <div class="material-item">
+        <div class="material-icon">📃</div>
+        <div class="material-name">White Paper</div>
+      </div>
+      
+      <div class="material-item">
+        <div class="material-icon">✏️</div>
+        <div class="material-name">Pencil</div>
+      </div>
+      
+      <div class="material-item">
+        <div class="material-icon">🧶</div>
+        <div class="material-name">Textured Objects</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="video-box">
+    <div class="video-title">Watch: How to Make a Monoprint</div>
+    <div class="video-wrapper">
+      <iframe width="560" height="315" src="https://ual.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c40a6b8f-378a-4bb2-a610-b3a000d8562a&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=false&interactivity=all" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+  
+  <div class="steps-container">
+    <h2>How to Make a Monoprint</h2>
+    
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <div>Get Your Materials</div>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <ul>
+            <li>Black oil pastel</li>
+            <li>Tracing paper</li>
+            <li>White paper</li>
+            <li>Pencil</li>
+            <li>Textured objects</li>
+          </ul>
+        </div>
+        <div class="step-image">
+          <img src="materials.jpg" alt="Black oil pastel, tracing paper, and materials for monoprinting" onclick="openModal(this.src)">
+          <figcaption>Materials for monoprinting</figcaption>
+        </div>
+      </div>
+    </div>
+    
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <div>Color the Tracing Paper</div>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <ul>
+            <li>Take tracing paper</li>
+            <li>Draw on it with black oil pastel</li>
+            <li>Cover one side completely</li>
+          </ul>
+        </div>
+        <div class="step-image">
+          <img src="black-pastel.jpg" alt="Applying black oil pastel to tracing paper" onclick="openModal(this.src)">
+          <figcaption>Adding black oil pastel to tracing paper</figcaption>
+        </div>
+      </div>
+    </div>
+    
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <div>Add Textured Objects</div>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <ul>
+            <li>Place textured objects on white paper</li>
+            <li>Arrange them in a pattern</li>
+            <li>Try leaves, string, or netting</li>
+          </ul>
+        </div>
+        <div class="step-image">
+          <img src="textured-objects.jpg" alt="Leaves and textured objects arranged on paper" onclick="openModal(this.src)">
+          <figcaption>Arranging textured objects</figcaption>
+        </div>
+      </div>
+    </div>
+    
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <div>Put It All Together</div>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <ul>
+            <li>Place black pastel tracing paper on top</li>
+            <li>Black side DOWN</li>
+            <li>Press with pencil or spoon</li>
+            <li>Rub all over the paper</li>
+          </ul>
+        </div>
+        <div class="step-image">
+          <img src="rubbing.jpg" alt="Rubbing the back of tracing paper with pencil" onclick="openModal(this.src)">
+          <figcaption>Rubbing to transfer black color</figcaption>
+        </div>
+      </div>
+    </div>
+    
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <div>Reveal Your Print</div>
+      </div>
+      <div class="step-content">
+        <div class="step-text">
+          <ul>
+            <li>Lift tracing paper</li>
+            <li>Remove objects</li>
+            <li>See your monoprint!</li>
+          </ul>
+        </div>
+        <div class="step-image">
+          <img src="final-print.jpg" alt="Final monoprint with black textured patterns" onclick="openModal(this.src)">
+          <figcaption>Your finished monoprint</figcaption>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="examples-gallery">
+    <h2>Examples</h2>
+    
+    <div class="gallery-grid">
+      <div class="example-item">
+        <img src="leaf-print.jpg" alt="Monoprint with leaf textures" class="example-image" onclick="openModal(this.src)">
+        <div class="example-desc">
+          <div class="example-title">Leaf Print</div>
+        </div>
+      </div>
+      
+      <div class="example-item">
+        <img src="string-print.jpg" alt="Monoprint with string patterns" class="example-image" onclick="openModal(this.src)">
+        <div class="example-desc">
+          <div class="example-title">String Print</div>
+        </div>
+      </div>
+      
+      <div class="example-item">
+        <img src="netting-print.jpg" alt="Monoprint with netting texture" class="example-image" onclick="openModal(this.src)">
+        <div class="example-desc">
+          <div class="example-title">Netting Print</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tips-box">
+    <h3>Helpful Tips</h3>
+    
+    <div class="tip-item">
+      <h4>Use Lots of Black Pastel</h4>
+      <p>Apply black oil pastel thickly for better prints</p>
+    </div>
+    
+    <div class="tip-item">
+      <h4>Press Hard</h4>
+      <p>Use firm pressure when rubbing to transfer black color</p>
+    </div>
+  </div>
+  
+  <div class="checklist">
+    <h3>Homework Checklist</h3>
+    
+    <div class="checklist-item">
+      <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
+      <div class="checklist-text">
+        <div class="checklist-label">Get all materials</div>
+      </div>
+    </div>
+    
+    <div class="checklist-item">
+      <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
+      <div class="checklist-text">
+        <div class="checklist-label">Make first monoprint</div>
+      </div>
+    </div>
+    
+    <div class="checklist-item">
+      <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
+      <div class="checklist-text">
+        <div class="checklist-label">Make second monoprint</div>
+      </div>
+    </div>
+    
+    <div class="checklist-item">
+      <div class="checklist-checkbox" onclick="toggleChecked(this)"></div>
+      <div class="checklist-text">
+        <div class="checklist-label">Take photos of your prints</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="submission-box">
+    <h3>Submit Your Homework</h3>
+    <p>Bring your monoprints to class</p>
+    <p>Upload photos to Padlet:</p>
+    <div class="submission-date">Due: November 30, 2025</div>
+    <a href="https://artslondon.padlet.org/hstokes12/term-2-week-3-th2s3ir6sfec7ukb" target="_blank" style="display: inline-block; background-color: var(--homework); color: white; text-decoration: none; padding: 10px 25px; border-radius: 5px; margin-top: 15px; font-weight: bold;">Upload to Padlet</a>
+  </div>
+  
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+</div>
+
+<button class="print-button" onclick="window.print()">🖨️</button>
+
+<script>
+// Modal functionality
+function openModal(src) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  modal.style.display = "block";
+  modalImg.src = src;
+}
+
+// Close modal when clicking the × symbol
+document.getElementsByClassName('close')[0].onclick = function() {
+  document.getElementById('imageModal').style.display = "none";
+}
+
+// Close modal when clicking outside the image
+window.onclick = function(event) {
+  const modal = document.getElementById('imageModal');
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Toggle checklist items
+function toggleChecked(element) {
+  element.classList.toggle('checked');
+  
+  // Save state to localStorage
+  const checkboxes = document.querySelectorAll('.checklist-checkbox');
+  const states = Array.from(checkboxes).map(checkbox => checkbox.classList.contains('checked'));
+  localStorage.setItem('monoprint-checklist', JSON.stringify(states));
+}
+
+// Load saved checklist state
+document.addEventListener('DOMContentLoaded', function() {
+  const savedStates = localStorage.getItem('monoprint-checklist');
+  
+  if (savedStates) {
+    const states = JSON.parse(savedStates);
+    const checkboxes = document.querySelectorAll('.checklist-checkbox');
+    
+    checkboxes.forEach((checkbox, index) => {
+      if (index < states.length && states[index]) {
+        checkbox.classList.add('checked');
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>
